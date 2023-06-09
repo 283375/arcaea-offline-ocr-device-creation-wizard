@@ -1,0 +1,7 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+  <qresource prefix="/images">
+    <file>ocr_test.png</file>
+    <file>watermark.png</file>
+  </qresource>
+</RCC>

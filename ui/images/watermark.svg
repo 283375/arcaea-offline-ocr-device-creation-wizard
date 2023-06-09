@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="237"
+   height="500"
+   viewBox="0 0 237 500.00002"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="watermark.svg"
+   inkscape:export-filename="watermark.png"
+   inkscape:export-xdpi="81.012657"
+   inkscape:export-ydpi="81.012657"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:current-layer="layer1"
+     showguides="false" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient9475">
+      <stop
+         style="stop-color:#27a6e5;stop-opacity:1;"
+         offset="0"
+         id="stop9471" />
+      <stop
+         style="stop-color:#5240b0;stop-opacity:1;"
+         offset="1"
+         id="stop9473" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9475"
+       id="linearGradient9477"
+       x1="0"
+       y1="0"
+       x2="237"
+       y2="500"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="arcaea-offline-ocr"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#linearGradient9477);fill-opacity:1;stroke:none;stroke-width:5;stroke-miterlimit:38"
+       id="rect263"
+       width="237"
+       height="500"
+       x="0"
+       y="0"
+       sodipodi:insensitive="true"
+       inkscape:label="bg" />
+    <g
+       id="g12731"
+       transform="translate(1.3750226,23.989761)"
+       inkscape:label="score">
+      <text
+         xml:space="preserve"
+         style="font-size:80px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         x="-47.825985"
+         y="259.57526"
+         id="text11010"
+         transform="rotate(-5)"
+         inkscape:label="AA"><tspan
+           sodipodi:role="line"
+           id="tspan11008"
+           x="-47.825985"
+           y="259.57526"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:80px;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">09'797'775</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#bfdaf3;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:0.75"
+         id="rect11307"
+         width="364"
+         height="60"
+         x="-46.865849"
+         y="201.00827"
+         transform="rotate(-5)"
+         inkscape:label="scoreROI" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1339"
+         width="39"
+         height="60"
+         x="-0.60580796"
+         y="201.00827"
+         inkscape:label="9recogBorder1"
+         transform="rotate(-5)" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter"
+         x="-0.65998256"
+         y="197.00122"
+         id="text1592"
+         inkscape:label="9recogMaxVal1"
+         transform="rotate(-5)"><tspan
+           sodipodi:role="line"
+           id="tspan1590"
+           x="-0.65998256"
+           y="197.00122"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Sarasa Fixed SC';-inkscape-font-specification:'Sarasa Fixed SC';fill:#00ff00;fill-opacity:1">0.7122</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1483"
+         width="39"
+         height="60"
+         x="94.572647"
+         y="201.00827"
+         inkscape:label="9recogBorder2"
+         transform="rotate(-5)" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter"
+         x="94.376495"
+         y="197.03531"
+         id="text1596"
+         inkscape:label="9recogMaxVal2"
+         transform="rotate(-5)"><tspan
+           sodipodi:role="line"
+           id="tspan1594"
+           x="94.376495"
+           y="197.03531"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Sarasa Fixed SC';-inkscape-font-specification:'Sarasa Fixed SC';fill:#00ff00;fill-opacity:1">0.7823</tspan></text>
+    </g>
+    <g
+       id="g14254"
+       transform="rotate(-5,577.17385,272.89826)"
+       inkscape:label="pureFarLost">
+      <text
+         xml:space="preserve"
+         style="font-size:25px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter"
+         x="128.00505"
+         y="328.82547"
+         id="text12743"
+         inkscape:label="PURE"><tspan
+           sodipodi:role="line"
+           id="tspan12741"
+           x="128.00505"
+           y="328.82547"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans';text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1">PURE</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:25px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter"
+         x="128.00505"
+         y="409.16302"
+         id="text12780"
+         inkscape:label="LOST"><tspan
+           sodipodi:role="line"
+           id="tspan12778"
+           x="128.00505"
+           y="409.16302"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans';text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1">LOST</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:25px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter"
+         x="128.00505"
+         y="368.76053"
+         id="text12784"
+         inkscape:label="FAR"><tspan
+           sodipodi:role="line"
+           id="tspan12782"
+           x="128.00505"
+           y="368.76053"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans';text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1">FAR</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:1.25;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;text-align:start;text-anchor:start"
+         x="150.31714"
+         y="332.30795"
+         id="text12788"
+         inkscape:label="pureNum"><tspan
+           sodipodi:role="line"
+           id="tspan12786"
+           x="150.31714"
+           y="332.30795"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1">954</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:1.25;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;text-align:start;text-anchor:start"
+         x="150.31714"
+         y="412.30801"
+         id="text12792"
+         inkscape:label="lostNum"><tspan
+           sodipodi:role="line"
+           id="tspan12790"
+           x="150.31714"
+           y="412.30801"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1">5</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:1.25;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;text-align:start;text-anchor:start"
+         x="150.31714"
+         y="372.30801"
+         id="text12796"
+         inkscape:label="farNum"><tspan
+           sodipodi:role="line"
+           id="tspan12794"
+           x="150.31714"
+           y="372.30801"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:GeosansLight;-inkscape-font-specification:GeosansLight;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1">30</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#bfdaf3;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:0.75"
+         id="rect12932"
+         width="275"
+         height="26"
+         x="142.92976"
+         y="306.81296"
+         inkscape:label="pureROI" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#bfdaf3;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:0.75"
+         id="rect12934"
+         width="275"
+         height="26"
+         x="142.92976"
+         y="346.62051"
+         inkscape:label="farROI" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#bfdaf3;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:0.75"
+         id="rect12936"
+         width="275"
+         height="26"
+         x="142.92976"
+         y="386.98801"
+         inkscape:label="lostROI" />
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#00ff00;stroke-width:1;stroke-miterlimit:38;stroke-dasharray:none;stroke-opacity:1"
+         id="rect13046"
+         width="16.5"
+         height="26"
+         x="151.86714"
+         y="306.81296"
+         inkscape:label="9recogBorder3" />
+      <text
+         xml:space="preserve"
+         style="font-size:15px;line-height:1.25;font-family:Inter;-inkscape-font-specification:Inter"
+         x="151.86714"
+         y="304.81299"
+         id="text13364"
+         inkscape:label="9recogMaxVal3"><tspan
+           sodipodi:role="line"
+           id="tspan13362"
+           x="151.86714"
+           y="304.81299"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:'Sarasa Fixed SC';-inkscape-font-specification:'Sarasa Fixed SC';fill:#00ff00;fill-opacity:1">0.8236</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:35px;line-height:1.1;font-family:Inter;-inkscape-font-specification:Inter"
+       x="19.879999"
+       y="49.360001"
+       id="text14322"
+       inkscape:label="AO-OCR"><tspan
+         sodipodi:role="line"
+         id="tspan14320"
+         x="19.879999"
+         y="49.360001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans';fill:#ffffff;fill-opacity:1">Arcaea</tspan><tspan
+         sodipodi:role="line"
+         x="19.879999"
+         y="90.64357"
+         id="tspan14324"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans';fill:#ffffff;fill-opacity:1">Offline</tspan><tspan
+         sodipodi:role="line"
+         x="19.879999"
+         y="131.92714"
+         id="tspan14326"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;font-family:'Source Han Sans';-inkscape-font-specification:'Source Han Sans';fill:#ffffff;fill-opacity:1">OCR</tspan></text>
+  </g>
+</svg>
