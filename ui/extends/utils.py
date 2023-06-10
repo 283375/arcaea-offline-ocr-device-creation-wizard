@@ -22,14 +22,11 @@ class QObjectSingleton(type(QObject), Singleton):
     pass
 
 
-def qImage2cvMat(qImg: QImage) -> Mat:
-    # https://stackoverflow.com/a/18449977/16484891
-    # CC BY-SA 4.0
-    qImg = qImg.convertToFormat(QImage.Format.Format_RGB32)
-
-    width = qImg.width()
-    height = qImg.height()
-
-    ptr = qImg.bits()
-    arr = np.array(ptr).reshape(height, width, 4)
-    return arr
+def qImage2cvMatRGBA(qImg: QImage) -> Mat:
+    # from Bing AI, references
+    # 1: https://stackoverflow.com/q/384759/16484891 | CC BY-SA 4.0
+    # 2: https://stackoverflow.com/q/37552924/16484891 | CC BY-SA 3.0
+    qImg = qImg.convertToFormat(QImage.Format.Format_RGBA8888)
+    qImg_data = qImg.constBits()
+    np_arr = np.frombuffer(qImg_data, np.uint8)
+    return np_arr.reshape((qImg.height(), qImg.width(), 4))

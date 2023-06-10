@@ -120,6 +120,8 @@ class CropGraphicsScene(QGraphicsScene):
 
 
 class ImageCropper(Ui_ImageCropper, QWidget):
+    selectionRectChanged = Signal()
+
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setupUi(self)
@@ -130,6 +132,7 @@ class ImageCropper(Ui_ImageCropper, QWidget):
         self.scene.viewSceneRectChanged.connect(
             lambda: self.graphicsView.setSceneRect(self.scene.viewSceneRect)
         )
+        self.scene.selectionRectChanged.connect(self.selectionRectChanged)
 
         self.scene.selectionRectChangedByDrag.connect(self.updateSpinBoxes)
 
@@ -182,3 +185,6 @@ class ImageCropper(Ui_ImageCropper, QWidget):
                 self.heightSpinBox.value(),
             )
         )
+
+    def selectionPixmap(self):
+        return self.scene.selectionPixmap()

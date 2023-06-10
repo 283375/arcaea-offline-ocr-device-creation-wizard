@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QWizardPage, QMessageBox
 from PySide6.QtCore import QCoreApplication, Slot, Signal
 from PySide6.QtGui import QPixmap, QImage
 
-from ui.extends.utils import qImage2cvMat
+from ui.extends.utils import qImage2cvMatRGBA
 from ui.implements.fields import TESSERACT_PATH, TESSDATA_PATH
 
 import pytesseract
@@ -48,7 +48,7 @@ class Prepare_Tesseract(Ui_Prepare_Tesseract, QWizardPage):
     @Slot()
     def on_executeButton_clicked(self):
         pytesseract.pytesseract.tesseract_cmd = self.__tesseractPath
-        cv2Mat = qImage2cvMat(self.image)
+        cv2Mat = qImage2cvMatRGBA(self.image)
         result = pytesseract.image_to_string(cv2Mat).replace("\n", "")
         self.resultLabel.setText(result)
         self.completeChanged.emit()
