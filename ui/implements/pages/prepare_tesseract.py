@@ -1,12 +1,12 @@
-from ui.designer.pages.prepare_tesseract_ui import Ui_Prepare_Tesseract
-from PySide6.QtWidgets import QWizardPage, QMessageBox
-from PySide6.QtCore import QCoreApplication, Slot, Signal
-from PySide6.QtGui import QPixmap, QImage
-
-from ui.extends.utils import qImage2cvMatRGBA
-from ui.implements.fields import TESSERACT_PATH, TESSDATA_PATH
-
 import pytesseract
+from cv2 import COLOR_RGBA2BGR, cvtColor
+from PySide6.QtCore import QCoreApplication, Signal, Slot
+from PySide6.QtGui import QImage, QPixmap
+from PySide6.QtWidgets import QMessageBox, QWizardPage
+
+from ui.designer.pages.prepare_tesseract_ui import Ui_Prepare_Tesseract
+from ui.extends.utils import qImage2cvMatRGBA
+from ui.implements.fields import TESSDATA_PATH, TESSERACT_PATH
 
 translate = QCoreApplication.translate
 
@@ -49,6 +49,7 @@ class Prepare_Tesseract(Ui_Prepare_Tesseract, QWizardPage):
     def on_executeButton_clicked(self):
         pytesseract.pytesseract.tesseract_cmd = self.__tesseractPath
         cv2Mat = qImage2cvMatRGBA(self.image)
+        cv2Mat = cvtColor(cv2Mat, COLOR_RGBA2BGR)
         result = pytesseract.image_to_string(cv2Mat).replace("\n", "")
         self.resultLabel.setText(result)
         self.completeChanged.emit()
@@ -58,17 +59,15 @@ class Prepare_Tesseract(Ui_Prepare_Tesseract, QWizardPage):
         if resultText == "Trig 283375":
             return True
 
-        confirm = QMessageBox.question(
+        button = QMessageBox.warning(
             self,
-            "Warning",
+            None,
             translate("DetectTesseract", "文字可能与图片不匹配。确定继续吗？"),
+            QMessageBox.StandardButton.Ok,
+            QMessageBox.StandardButton.Cancel,
         )
 
-        return confirm in [
-            QMessageBox.StandardButton.Yes,
-            QMessageBox.StandardButton.Ok,
-        ]
+        return button == QMessageBox.StandardButton.Ok
 
     def isComplete(self):
-        # return bool(self.resultLabel.text())
         return True
