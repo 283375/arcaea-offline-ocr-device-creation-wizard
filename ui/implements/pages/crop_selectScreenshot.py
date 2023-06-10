@@ -15,7 +15,7 @@ class Crop_SelectScreenshot(Ui_Crop_SelectScreenshot, QWizardPage):
         super().__init__(parent)
         self.setupUi(self)
 
-        self.setTitle(translate("Title", "裁剪"))
+        self.setTitle(translate("Title", "框选"))
         self.setSubTitle(translate("Subtitle", "选择截图"))
 
         self.graphicsScene = QGraphicsScene(self)

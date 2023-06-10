@@ -43,6 +43,7 @@ class Ui_Crop_General(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.exampleImgLabel = QLabel(self.groupBox)
         self.exampleImgLabel.setObjectName(u"exampleImgLabel")
+        self.exampleImgLabel.setMaximumSize(QSize(300, 16777215))
         self.exampleImgLabel.setStyleSheet(u"color: #9e9e9e;\n"
 "font-style: italic;")
 

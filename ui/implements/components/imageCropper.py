@@ -38,7 +38,7 @@ class CropGraphicsScene(QGraphicsScene):
         self.__selectionRectBorderItem.setPen(self.__selectionRectBorderItemPen)
         self.__selectionRectBorderItem.hide()
         self.addItem(self.__selectionRectBorderItem)
-        self.__pixmapItem = QGraphicsPixmapItem()
+        self.__pixmapItem = None
 
         self.__dragging = False
         self.__startScenePos = QPoint()
@@ -62,6 +62,8 @@ class CropGraphicsScene(QGraphicsScene):
 
     def setPixmap(self, pixmap: QPixmap):
         if self.__pixmapItem:
+            if pixmap.cacheKey() == self.__pixmapItem.pixmap().cacheKey():
+                return
             self.removeItem(self.__pixmapItem)
         self.__pixmapItem = QGraphicsPixmapItem(pixmap)
         self.addItem(self.__pixmapItem)
@@ -136,10 +138,14 @@ class ImageCropper(Ui_ImageCropper, QWidget):
 
         self.scene.selectionRectChangedByDrag.connect(self.updateSpinBoxes)
 
-        self.topLeftPointTopSpinBox.valueChanged.connect(self.setSelectionRect)
-        self.topLeftPointLeftSpinBox.valueChanged.connect(self.setSelectionRect)
-        self.widthSpinBox.valueChanged.connect(self.setSelectionRect)
-        self.heightSpinBox.valueChanged.connect(self.setSelectionRect)
+        self.topLeftPointTopSpinBox.valueChanged.connect(
+            self.__setSelectionRectBySpinBoxes
+        )
+        self.topLeftPointLeftSpinBox.valueChanged.connect(
+            self.__setSelectionRectBySpinBoxes
+        )
+        self.widthSpinBox.valueChanged.connect(self.__setSelectionRectBySpinBoxes)
+        self.heightSpinBox.valueChanged.connect(self.__setSelectionRectBySpinBoxes)
 
     def setPixmap(self, pixmap: QPixmap):
         self.scene.setPixmap(pixmap)
@@ -176,15 +182,26 @@ class ImageCropper(Ui_ImageCropper, QWidget):
     def selectionRect(self):
         return self.scene.selectionRect()
 
-    def setSelectionRect(self):
-        self.scene.setSelectionRect(
-            QRect(
-                self.topLeftPointLeftSpinBox.value(),
-                self.topLeftPointTopSpinBox.value(),
-                self.widthSpinBox.value(),
-                self.heightSpinBox.value(),
-            )
+    def __setSelectionRectBySpinBoxes(self):
+        rect = QRect(
+            self.topLeftPointLeftSpinBox.value(),
+            self.topLeftPointTopSpinBox.value(),
+            self.widthSpinBox.value(),
+            self.heightSpinBox.value(),
         )
+
+        self.setSelectionRect(rect)
+
+    def setSelectionRect(self, rect: QRect):
+        # TODO:
+        # here we disconnect signals to prevent potential RecursionError,
+        # need to find a better way emitting signals to prevent this.
+        # and great thanks to Bing AI finding this issue.
+        self.scene.selectionRectChanged.disconnect(self.selectionRectChanged)
+        self.scene.setSelectionRect(rect)
+        self.updateSpinBoxes()
+        self.selectionRectChanged.emit()
+        self.scene.selectionRectChanged.connect(self.selectionRectChanged)
 
     def selectionPixmap(self):
         return self.scene.selectionPixmap()

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Crop_Introduction</class>
+ <widget class="QWidget" name="Crop_Introduction">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">CropIntroduction</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>接下来向导将指引您框选出图像识别区域。在框选时，请注意以下简称：&lt;br&gt;
+&lt;ul&gt;
+  &lt;li&gt;上下对齐：框选边缘应紧贴文字上下边界（左右不受此限制）&lt;/li&gt;
+  &lt;li&gt;适当留白：框选边缘可与文字留出适当距离，但不应包含其它元素&lt;/li&gt;
+&lt;/ul&gt;
+在框选时请注意框选宽度，可随时参考右上角的样例图片。</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
