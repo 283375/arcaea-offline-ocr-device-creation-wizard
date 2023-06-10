@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QGraphicsView
-from PySide6.QtCore import QPointF
+from PySide6.QtCore import QPointF, QObject
 
 
-class GraphicsViewZoomWrapper(QGraphicsView):
+class GraphicsViewZoomWrapper(QObject):
     """
     Ported from https://stackoverflow.com/a/19114517/16484891
     CC BY-SA 3.0
