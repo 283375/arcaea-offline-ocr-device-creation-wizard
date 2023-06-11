@@ -1,6 +1,7 @@
 from .welcome import Welcome
 from .prepare_arcaeaOfflineOcr import Prepare_ArcaeaOfflineOcr
 from .prepare_tesseract import Prepare_Tesseract
+from .device_select import Device_Select
 from .crop_introduction import Crop_Introduction
 from .crop_selectScreenshot import Crop_SelectScreenshot
 from .crop_pure import Crop_Pure

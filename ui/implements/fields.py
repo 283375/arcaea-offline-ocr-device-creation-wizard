@@ -1,5 +1,8 @@
 TESSERACT_PATH = "tesseract_path"
 TESSDATA_PATH = "tessdata_path"
+DEVICES_JSON_PATH = "devices_json_path"
+DEVICE_NAME = "device_name"
+DEVICE_UUID = "device_uuid"
 SCREENSHOT_IMAGE = "screenshot_image"
 PURE_RECT = "pure_rect"
 FAR_RECT = "far_rect"

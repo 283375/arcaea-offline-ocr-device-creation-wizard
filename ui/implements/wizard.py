@@ -3,6 +3,7 @@ from ui.implements.pages import (
     Welcome,
     Prepare_ArcaeaOfflineOcr,
     Prepare_Tesseract,
+    Device_Select,
     Crop_Introduction,
     Crop_SelectScreenshot,
     Crop_Pure,
@@ -50,6 +51,7 @@ class Wizard(QWizard):
         self.addPage(Welcome(self))
         self.addPage(Prepare_ArcaeaOfflineOcr(self))
         self.addPage(Prepare_Tesseract(self))
+        self.addPage(Device_Select(self))
         self.addPage(Crop_Introduction(self))
         self.addPage(crop_selectScreenshot)
         self.crop_pure_pageId = self.addPage(crop_pure)
