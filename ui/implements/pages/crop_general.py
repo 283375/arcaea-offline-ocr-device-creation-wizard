@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QMessageBox, QWizardPage
 
 from ui.designer.pages.crop_general_ui import Ui_Crop_General
 from ui.extends.utils import qImage2cvMatRGBA
-from ui.implements.fields import SCREENSHOT_IMAGE
+from ui.implements.fields import SCREENSHOT_PATH
 
 from cv2 import cvtColor, COLOR_RGBA2BGR, COLOR_BGR2HSV
 
@@ -19,15 +19,8 @@ class Crop_General(Ui_Crop_General, QWizardPage):
         self.setupUi(self)
         self.setTitle(translate("Title", "框选"))
 
-        self.setScreenshot()
-
         self.imageCropper.selectionRectChanged.connect(self.selectionRectChanged)
         self.imageCropper.selectionRectChanged.connect(self.completeChanged)
-
-    def setScreenshot(self):
-        screenshotQImage = self.field(SCREENSHOT_IMAGE)  # type: QImage
-        if screenshotQImage is not None:
-            self.imageCropper.setPixmap(QPixmap.fromImage(screenshotQImage))
 
     def setExampleImgLabelPixmap(self, pixmap: QPixmap):
         scaled_pixmap = pixmap.scaled(
@@ -61,6 +54,12 @@ class Crop_General(Ui_Crop_General, QWizardPage):
     selectionRect = Property(
         QRect, getSelectionRect, setSelectionRect, notify=selectionRectChanged
     )
+
+    def initializePage(self):
+        screenshotPath = self.field(SCREENSHOT_PATH)  # type: str
+        self.imageCropper.setPixmap(QPixmap(screenshotPath))
+
+        return super().initializePage()
 
     def isComplete(self):
         return self.selectionRect.isValid()

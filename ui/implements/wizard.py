@@ -38,14 +38,6 @@ class Wizard(QWizard):
         crop_rating_class = Crop_RatingClass(self)
         crop_title = Crop_Title(self)
 
-        crop_selectScreenshot.screenshotChanged.connect(crop_pure.setScreenshot)
-        crop_selectScreenshot.screenshotChanged.connect(crop_far.setScreenshot)
-        crop_selectScreenshot.screenshotChanged.connect(crop_lost.setScreenshot)
-        crop_selectScreenshot.screenshotChanged.connect(crop_score.setScreenshot)
-        crop_selectScreenshot.screenshotChanged.connect(crop_max_recall.setScreenshot)
-        crop_selectScreenshot.screenshotChanged.connect(crop_rating_class.setScreenshot)
-        crop_selectScreenshot.screenshotChanged.connect(crop_title.setScreenshot)
-
         self.currentIdChanged.connect(self.autoSetSelectionRect)
 
         self.addPage(Welcome(self))

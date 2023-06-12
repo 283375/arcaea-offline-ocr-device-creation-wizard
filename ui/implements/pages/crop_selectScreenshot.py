@@ -1,15 +1,15 @@
-from ui.designer.pages.crop_selectScreenshot_ui import Ui_Crop_SelectScreenshot
-from PySide6.QtWidgets import QWizardPage, QGraphicsScene
-from PySide6.QtCore import QCoreApplication, Signal, Slot, Qt, Property
-from PySide6.QtGui import QImage, QPixmap
+from PySide6.QtCore import Property, QCoreApplication, Qt, Signal
+from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsScene, QWizardPage
 
-from ui.implements.fields import SCREENSHOT_IMAGE
+from ui.designer.pages.crop_selectScreenshot_ui import Ui_Crop_SelectScreenshot
+from ui.implements.fields import SCREENSHOT_PATH
 
 translate = QCoreApplication.translate
 
 
 class Crop_SelectScreenshot(Ui_Crop_SelectScreenshot, QWizardPage):
-    screenshotChanged = Signal()
+    screenshotPathChanged = Signal()
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -18,30 +18,37 @@ class Crop_SelectScreenshot(Ui_Crop_SelectScreenshot, QWizardPage):
         self.setTitle(translate("Title", "框选"))
         self.setSubTitle(translate("Subtitle", "选择截图"))
 
+        self.__screenshotPath = ""
         self.graphicsScene = QGraphicsScene(self)
-        self.__screenshot = None
-        self.registerField(SCREENSHOT_IMAGE, self, "screenshot")
+        self.pixmapItem: QGraphicsPixmapItem | None = None
+        self.registerField(SCREENSHOT_PATH, self, "screenshotPath")
 
         self.fileSelector.fileDialog.accepted.connect(self.setImage)
 
-    @Property(QImage, notify=screenshotChanged)
-    def screenshot(self):
-        return self.__screenshot
+    def getScreenshotPath(self):
+        return self.__screenshotPath
 
-    @screenshot.setter
-    def screenshot(self, value: QImage):
-        self.__screenshot = value
-        self.screenshotChanged.emit()
+    def setScreenshotPath(self, path: str):
+        self.__screenshotPath = path
+        self.screenshotPathChanged.emit()
+
+    screenshotPath = Property(
+        str, getScreenshotPath, setScreenshotPath, screenshotPathChanged
+    )
 
     def setImage(self):
         file = self.fileSelector.fileDialog.selectedFiles()[0]
-        self.screenshot = QImage(file)
-        self.graphicsScene.addPixmap(
-            QPixmap.fromImage(self.__screenshot).scaled(180, 90)
-        )
+        if file == self.screenshotPath:
+            return
+
+        if self.pixmapItem:
+            self.graphicsScene.removeItem(self.pixmapItem)
+        self.pixmapItem = QGraphicsPixmapItem(QPixmap(file))
+        self.graphicsView.fitInView(self.pixmapItem, Qt.AspectRatioMode.KeepAspectRatio)
+        self.graphicsScene.addItem(self.pixmapItem)
         self.graphicsView.setScene(self.graphicsScene)
-        self.setField(SCREENSHOT_IMAGE, self.__screenshot)
+        self.setField(SCREENSHOT_PATH, file)
         self.completeChanged.emit()
 
     def isComplete(self):
-        return isinstance(self.__screenshot, QImage)
+        return bool(self.field(SCREENSHOT_PATH))
