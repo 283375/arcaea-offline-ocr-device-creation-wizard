@@ -13,8 +13,21 @@ from ui.implements.pages import (
     Crop_MaxRecall,
     Crop_RatingClass,
     Crop_Title,
+    Final_Confirm,
 )
-
+from ui.extends.devices import qRect_to_device_rect
+from arcaea_offline_ocr.device import Device
+from .fields import (
+    DEVICE_UUID,
+    DEVICE_NAME,
+    PURE_RECT,
+    FAR_RECT,
+    LOST_RECT,
+    SCORE_RECT,
+    MAX_RECALL_RECT,
+    RATING_CLASS_RECT,
+    TITLE_RECT,
+)
 from PySide6.QtGui import QPixmap
 from PySide6.QtCore import QRect
 
@@ -53,6 +66,7 @@ class Wizard(QWizard):
         self.crop_max_recall_pageId = self.addPage(crop_max_recall)
         self.crop_rating_class_pageId = self.addPage(crop_rating_class)
         self.addPage(crop_title)
+        self.addPage(Final_Confirm(self))
 
     def autoSetSelectionRect(self):
         crop_pure = self.page(self.crop_pure_pageId)  # type: Crop_Pure
@@ -105,3 +119,40 @@ class Wizard(QWizard):
                     maxRecallSelectionRect.height(),
                 )
             )
+
+    def device(self):
+        uuid = self.field(DEVICE_UUID)
+        name = self.field(DEVICE_NAME)
+        pureRect = self.field(PURE_RECT)
+        farRect = self.field(FAR_RECT)
+        lostRect = self.field(LOST_RECT)
+        scoreRect = self.field(SCORE_RECT)
+        maxRecallRect = self.field(MAX_RECALL_RECT)
+        ratingClassRect = self.field(RATING_CLASS_RECT)
+        titleRect = self.field(TITLE_RECT)
+
+        if (
+            uuid
+            and name
+            and pureRect
+            and farRect
+            and lostRect
+            and scoreRect
+            and maxRecallRect
+            and ratingClassRect
+            and titleRect
+        ):
+            return Device(
+                version=1,
+                uuid=uuid,
+                name=name,
+                pure=qRect_to_device_rect(pureRect),
+                far=qRect_to_device_rect(farRect),
+                lost=qRect_to_device_rect(lostRect),
+                max_recall=qRect_to_device_rect(maxRecallRect),
+                rating_class=qRect_to_device_rect(ratingClassRect),
+                score=qRect_to_device_rect(scoreRect),
+                title=qRect_to_device_rect(titleRect),
+            )
+
+        return None

@@ -11,3 +11,4 @@ from .crop_score import Crop_Score
 from .crop_max_recall import Crop_MaxRecall
 from .crop_rating_class import Crop_RatingClass
 from .crop_title import Crop_Title
+from .final_confirm import Final_Confirm
