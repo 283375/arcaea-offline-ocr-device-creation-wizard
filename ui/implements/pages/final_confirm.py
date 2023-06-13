@@ -1,18 +1,12 @@
 from arcaea_offline_ocr.device import Device
 from arcaea_offline_ocr.recognize import recognize
-from PySide6.QtCore import (
-    QAbstractTableModel,
-    QCoreApplication,
-    QModelIndex,
-    Qt,
-    QRect,
-    QSize,
-)
+from PySide6.QtCore import QAbstractTableModel, QCoreApplication, QModelIndex, QSize, Qt
 from PySide6.QtGui import QPainter, QPixmap
-from PySide6.QtWidgets import QStyledItemDelegate, QWizard, QWizardPage
+from PySide6.QtWidgets import QHeaderView, QStyledItemDelegate, QWizard, QWizardPage
 
 from ui.designer.pages.final_confirm_ui import Ui_Final_Confirm
 from ui.implements.fields import (
+    DEVICES_JSON_PATH,
     FAR_RECT,
     LOST_RECT,
     MAX_RECALL_RECT,
@@ -70,8 +64,6 @@ class DeviceResultModel(QAbstractTableModel):
         if 0 <= index.row() < len(self.__items):
             if index.column() in [0, 1, 2] and role == Qt.ItemDataRole.DisplayRole:
                 return self.__items[index.row()][index.column()]
-            # elif index.column() == 1 and role == Qt.ItemDataRole.UserRole + 1:
-            #     return self.__items[index.row()][index.column()]
             else:
                 return None
         return None
@@ -113,30 +105,23 @@ class DeviceResultModel(QAbstractTableModel):
             ]
 
             self.beginResetModel()
-            self.beginRemoveRows(QModelIndex(), 0, self.rowCount() - 1)
-            self.endRemoveRows()
-            self.beginInsertRows(QModelIndex(), 0, self.rowCount() - 1)
             for i in range(len(self.__items)):
                 self.__items[i][1] = pixmap_selections[i]
                 self.__items[i][2] = results[i]
-            self.endInsertRows()
             self.endResetModel()
-            print(self.__items)
 
 
 class SimplePixmapDelegate(QStyledItemDelegate):
     def paint(self, painter: QPainter, option, index: QModelIndex):
         pixmap = index.data(Qt.ItemDataRole.DisplayRole)
         if isinstance(pixmap, QPixmap):
-            self.sizeHintChanged.emit()
-            rect: QRect = option.rect
-            painter.drawPixmap(rect.x(), rect.y(), pixmap)
+            painter.drawPixmap(option.rect.x(), option.rect.y(), pixmap)
         else:
             super().paint(painter, option, index)
 
     def sizeHint(self, option, index: QModelIndex):
         pixmap = index.data(Qt.ItemDataRole.DisplayRole)
-        return pixmap.size() if isinstance(pixmap, QPixmap) else QSize(0, 0)
+        return pixmap.size() if isinstance(pixmap, QPixmap) else QSize(250, 100)
 
 
 class Final_Confirm(Ui_Final_Confirm, QWizardPage):
@@ -149,8 +134,20 @@ class Final_Confirm(Ui_Final_Confirm, QWizardPage):
 
         self.__model = DeviceResultModel(self)
         self.tableView.setModel(self.__model)
-        # self.tableView.setItemDelegateForColumn(1, SimplePixmapDelegate(self.__model))
+        self.tableView.setItemDelegateForColumn(1, SimplePixmapDelegate(self.tableView))
+        self.tableView.horizontalHeader().setSectionResizeMode(
+            QHeaderView.ResizeMode.Fixed
+        )
+        self.tableView.verticalHeader().setSectionResizeMode(
+            QHeaderView.ResizeMode.Fixed
+        )
 
     def initializePage(self):
-        self.__model.update(self.wizard())
-        return super().initializePage()
+        device = self.wizard().device()
+        if isinstance(device, Device):
+            self.__model.update(self.wizard())
+            self.tableView.resizeRowsToContents()
+            self.tableView.resizeColumnsToContents()
+
+            self.devicesJsonPathLabel.setText(self.field(DEVICES_JSON_PATH))
+            self.deviceInfoLabel.setText(device.repr_info())
