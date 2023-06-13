@@ -1,55 +1,76 @@
-from PySide6.QtWidgets import QWizard
+from arcaea_offline_ocr.device import Device
+from PySide6.QtCore import QRect, Qt
+from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QLabel, QSizePolicy, QVBoxLayout, QWidget, QWizard
+
+from ui.extends.devices import qRect_to_device_rect
 from ui.implements.pages import (
-    Welcome,
+    Crop_Far,
+    Crop_Introduction,
+    Crop_Lost,
+    Crop_MaxRecall,
+    Crop_Pure,
+    Crop_RatingClass,
+    Crop_Score,
+    Crop_SelectScreenshot,
+    Crop_Title,
+    Device_Select,
+    Final_Confirm,
     Prepare_ArcaeaOfflineOcr,
     Prepare_Tesseract,
-    Device_Select,
-    Crop_Introduction,
-    Crop_SelectScreenshot,
-    Crop_Pure,
-    Crop_Far,
-    Crop_Lost,
-    Crop_Score,
-    Crop_MaxRecall,
-    Crop_RatingClass,
-    Crop_Title,
-    Final_Confirm,
+    Welcome,
 )
-from ui.extends.devices import qRect_to_device_rect
-from arcaea_offline_ocr.device import Device
+
 from .fields import (
-    DEVICE_UUID,
     DEVICE_NAME,
-    PURE_RECT,
+    DEVICE_UUID,
     FAR_RECT,
     LOST_RECT,
-    SCORE_RECT,
     MAX_RECALL_RECT,
+    PURE_RECT,
     RATING_CLASS_RECT,
+    SCORE_RECT,
     TITLE_RECT,
 )
-from PySide6.QtGui import QPixmap
-from PySide6.QtCore import QRect
+
+
+class WatermarkPixmapWidget(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.vLayout = QVBoxLayout(self)
+        self.vLayout.setContentsMargins(0, 0, 0, 0)
+        self.pixmapLabel = QLabel(self)
+        self.pixmapLabel.setSizePolicy(
+            QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum
+        )
+        self.vLayout.addWidget(self.pixmapLabel)
+
+    def setPixmap(self, pixmap: QPixmap):
+        self.pixmapLabel.setPixmap(pixmap)
+        self.pixmapLabel.setMinimumSize(pixmap.size())
 
 
 class Wizard(QWizard):
     def __init__(self):
         super().__init__()
+        self.resize(900, 600)
         self.setWizardStyle(QWizard.WizardStyle.ModernStyle)
-
-        self.setPixmap(
-            QWizard.WizardPixmap.WatermarkPixmap,
-            QPixmap(":/images/watermark.png"),
+        self.setOptions(
+            QWizard.WizardOption.NoBackButtonOnLastPage
+            | QWizard.WizardOption.NoBackButtonOnStartPage
         )
-
-        crop_selectScreenshot = Crop_SelectScreenshot(self)
-        crop_pure = Crop_Pure(self)
-        crop_far = Crop_Far(self)
-        crop_lost = Crop_Lost(self)
-        crop_score = Crop_Score(self)
-        crop_max_recall = Crop_MaxRecall(self)
-        crop_rating_class = Crop_RatingClass(self)
-        crop_title = Crop_Title(self)
+        self.setWindowFlags(
+            self.windowFlags()
+            | Qt.WindowType.CustomizeWindowHint
+            | Qt.WindowType.WindowMinimizeButtonHint
+            | Qt.WindowType.Window
+        )
+        watermarkPixmapWidget = WatermarkPixmapWidget(self)
+        watermarkPixmapWidget.setPixmap(QPixmap(":/images/watermark.png"))
+        self.setSideWidget(watermarkPixmapWidget)
+        self.setMinimumHeight(
+            watermarkPixmapWidget.layout().minimumSize().height() + 200
+        )
 
         self.currentIdChanged.connect(self.autoSetSelectionRect)
 
@@ -58,14 +79,14 @@ class Wizard(QWizard):
         self.addPage(Prepare_Tesseract(self))
         self.addPage(Device_Select(self))
         self.addPage(Crop_Introduction(self))
-        self.addPage(crop_selectScreenshot)
-        self.crop_pure_pageId = self.addPage(crop_pure)
-        self.crop_far_pageId = self.addPage(crop_far)
-        self.crop_lost_pageId = self.addPage(crop_lost)
-        self.addPage(crop_score)
-        self.crop_max_recall_pageId = self.addPage(crop_max_recall)
-        self.crop_rating_class_pageId = self.addPage(crop_rating_class)
-        self.addPage(crop_title)
+        self.addPage(Crop_SelectScreenshot(self))
+        self.crop_pure_pageId = self.addPage(Crop_Pure(self))
+        self.crop_far_pageId = self.addPage(Crop_Far(self))
+        self.crop_lost_pageId = self.addPage(Crop_Lost(self))
+        self.addPage(Crop_Score(self))
+        self.crop_max_recall_pageId = self.addPage(Crop_MaxRecall(self))
+        self.crop_rating_class_pageId = self.addPage(Crop_RatingClass(self))
+        self.addPage(Crop_Title(self))
         self.addPage(Final_Confirm(self))
 
     def autoSetSelectionRect(self):
