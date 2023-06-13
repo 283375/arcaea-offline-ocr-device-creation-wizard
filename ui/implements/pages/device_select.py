@@ -1,5 +1,14 @@
 from arcaea_offline_ocr.device import Device
-from PySide6.QtCore import Property, QCoreApplication, QDir, QFile, QIODevice, Qt, Slot
+from PySide6.QtCore import (
+    Property,
+    QCoreApplication,
+    QDir,
+    QFile,
+    QIODevice,
+    Qt,
+    Slot,
+    QUrl,
+)
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 from PySide6.QtWidgets import QMessageBox, QWizardPage
 
@@ -55,6 +64,8 @@ class Device_Select(Ui_Device_Select, QWizardPage):
         self.setTitle(translate("Title", "device.select"))
         self.setSubTitle(translate("Subtitle", "device.select"))
 
+        self.fileSelector.setNameFilters(["JSON (*.json)", "*"])
+
         self.__devicesJsonPath = None
         self.__deviceUuid = ""
         self.__deviceName = ""
@@ -65,15 +76,16 @@ class Device_Select(Ui_Device_Select, QWizardPage):
         self.__devicesModel = DevicesModel(self)
         self.existingDevicesComboBox.setModel(self.__devicesModel)
 
-        self.fileSelector.fileDialog.accepted.connect(
-            lambda: self.setDevicesJson(
-                QFile(self.fileSelector.fileDialog.selectedFiles()[0])
-            )
+        self.fileSelector.accepted.connect(
+            lambda: self.setDevicesJson(QFile(self.fileSelector.selectedFiles()[0]))
         )
 
-    def setDeviceOptions(self, uuid: str, name: str):
+    def setDeviceInfo(self, uuid: str, name: str):
         self.setField(DEVICE_UUID, uuid)
         self.setField(DEVICE_NAME, name)
+        self.deviceIndicatorLabel.setText(
+            f"{self.field(DEVICE_NAME)} ({self.field(DEVICE_UUID)})"
+        )
         self.completeChanged.emit()
 
     @Slot()
@@ -101,14 +113,15 @@ class Device_Select(Ui_Device_Select, QWizardPage):
     @Slot()
     def on_existingDevicesComboBox_activated(self):
         if self.existingDevicesComboBox.currentIndex() > -1:
-            self.setDeviceOptions(
+            self.setDeviceInfo(
                 self.existingDevicesComboBox.currentData(DevicesModel.UuidRole),
                 self.existingDevicesComboBox.currentData(DevicesModel.NameRole),
             )
 
     def newDeviceDialogAccepted(self):
         name, uuid = self.__newDeviceDialog.data()
-        self.setDeviceOptions(uuid, name)
+        self.setDeviceInfo(uuid, name)
+        self.existingDevicesComboBox.setCurrentIndex(-1)
         self.__newDeviceDialog.deleteLater()
 
     def setDevicesJson(self, file: QFile):
@@ -118,6 +131,11 @@ class Device_Select(Ui_Device_Select, QWizardPage):
             self.__devicesModel.setDevices(devices)
             self.existingDevicesComboBox.setCurrentIndex(-1)
             self.setField(DEVICES_JSON_PATH, file.fileName())
+            if (
+                not self.fileSelector.selectedFiles()
+                or QUrl(self.fileSelector.selectedFiles()[0]) != QUrl(file.fileName()),
+            ):
+                self.fileSelector.selectFile(file.fileName())
         except Exception as e:
             QMessageBox.critical(self, "Error", str(e))
             self.actionsWidget.setEnabled(False)
@@ -135,16 +153,9 @@ class Device_Select(Ui_Device_Select, QWizardPage):
         name: str = self.field(DEVICE_NAME)
 
         if QFile(devicesJsonPath).exists() and uuid and name:
-            result = QMessageBox.information(
-                self,
-                "Confirm",
-                translate("Page_Device", "device.confirmInput"),
-                QMessageBox.StandardButton.Yes,
-                QMessageBox.StandardButton.No,
-            )
-            return result == QMessageBox.StandardButton.Yes
-        else:
-            QMessageBox.critical(
-                self, "Error", translate("Page_Device", "device.incompleteInput")
-            )
-            return False
+            return True
+
+        QMessageBox.critical(
+            self, "Error", translate("Page_Device", "device.incompleteInput")
+        )
+        return False

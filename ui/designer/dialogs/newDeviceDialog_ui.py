@@ -23,32 +23,33 @@ class Ui_NewDeviceDialog(object):
     def setupUi(self, NewDeviceDialog):
         if not NewDeviceDialog.objectName():
             NewDeviceDialog.setObjectName(u"NewDeviceDialog")
-        NewDeviceDialog.resize(300, 150)
+        NewDeviceDialog.resize(300, 100)
+        NewDeviceDialog.setMinimumSize(QSize(300, 100))
         self.verticalLayout = QVBoxLayout(NewDeviceDialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setLabelAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.label = QLabel(NewDeviceDialog)
-        self.label.setObjectName(u"label")
-
-        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label)
-
         self.label_2 = QLabel(NewDeviceDialog)
         self.label_2.setObjectName(u"label_2")
 
-        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label_2)
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.label_2)
 
         self.uuidLabel = QLabel(NewDeviceDialog)
         self.uuidLabel.setObjectName(u"uuidLabel")
         self.uuidLabel.setText(u"...")
 
-        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.uuidLabel)
+        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.uuidLabel)
+
+        self.label = QLabel(NewDeviceDialog)
+        self.label.setObjectName(u"label")
+
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.label)
 
         self.deviceNameEdit = QLineEdit(NewDeviceDialog)
         self.deviceNameEdit.setObjectName(u"deviceNameEdit")
 
-        self.formLayout.setWidget(0, QFormLayout.FieldRole, self.deviceNameEdit)
+        self.formLayout.setWidget(1, QFormLayout.FieldRole, self.deviceNameEdit)
 
 
         self.verticalLayout.addLayout(self.formLayout)
@@ -70,7 +71,7 @@ class Ui_NewDeviceDialog(object):
 
     def retranslateUi(self, NewDeviceDialog):
         NewDeviceDialog.setWindowTitle(QCoreApplication.translate("NewDeviceDialog", u"\u65b0\u5efa\u8bbe\u5907", None))
-        self.label.setText(QCoreApplication.translate("NewDeviceDialog", u"\u8bbe\u5907\u540d\u79f0", None))
         self.label_2.setText(QCoreApplication.translate("NewDeviceDialog", u"UUID", None))
+        self.label.setText(QCoreApplication.translate("NewDeviceDialog", u"\u8bbe\u5907\u5907\u6ce8", None))
     # retranslateUi
 

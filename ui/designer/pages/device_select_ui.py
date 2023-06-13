@@ -83,6 +83,11 @@ class Ui_Device_Select(object):
 
         self.verticalLayout.addWidget(self.actionsWidget)
 
+        self.deviceIndicatorLabel = QLabel(Device_Select)
+        self.deviceIndicatorLabel.setObjectName(u"deviceIndicatorLabel")
+
+        self.verticalLayout.addWidget(self.deviceIndicatorLabel)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
@@ -99,6 +104,7 @@ class Ui_Device_Select(object):
         self.label_2.setText(QCoreApplication.translate("Device_Select", u"\u521b\u5efa\u65b0\u8bbe\u5907", None))
         self.newDeviceButton.setText(QCoreApplication.translate("Device_Select", u"\u914d\u7f6e\u2026", None))
         self.label_3.setText(QCoreApplication.translate("Device_Select", u"\u7f16\u8f91\u73b0\u6709\u8bbe\u5907", None))
+        self.deviceIndicatorLabel.setText(QCoreApplication.translate("Device_Select", u"...", None))
         pass
     # retranslateUi
 
