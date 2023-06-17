@@ -3,7 +3,11 @@ from PySide6.QtCore import QRect, Qt
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QLabel, QSizePolicy, QVBoxLayout, QWidget, QWizard
 
-from ui.extends.devices import qRect_to_device_rect
+from ui.extends.devices import (
+    load_devices_json,
+    qRect_to_device_rect,
+    write_devices_json,
+)
 from ui.implements.pages import (
     Crop_Far,
     Crop_Introduction,
@@ -24,6 +28,7 @@ from ui.implements.pages import (
 from .fields import (
     DEVICE_NAME,
     DEVICE_UUID,
+    DEVICES_JSON_PATH,
     FAR_RECT,
     LOST_RECT,
     MAX_RECALL_RECT,
@@ -177,3 +182,22 @@ class Wizard(QWizard):
             )
 
         return None
+
+    def writeDevice(self):
+        devicesJsonPath = self.field(DEVICES_JSON_PATH)
+        device = self.device()
+        if devicesJsonPath and device is not None:
+            devices = load_devices_json(devicesJsonPath)
+            index = next(
+                (
+                    i
+                    for i, deviceInFile in enumerate(devices)
+                    if deviceInFile.uuid == device.uuid
+                ),
+                -1,
+            )
+            if index > -1:
+                devices[index] = device
+            else:
+                devices.append(device)
+            write_devices_json(devicesJsonPath, devices)

@@ -1,8 +1,21 @@
 from arcaea_offline_ocr.device import Device
 from arcaea_offline_ocr.recognize import recognize
-from PySide6.QtCore import QAbstractTableModel, QCoreApplication, QModelIndex, QSize, Qt
+from PySide6.QtCore import (
+    QAbstractTableModel,
+    QCoreApplication,
+    QModelIndex,
+    QSize,
+    Qt,
+    Slot,
+)
 from PySide6.QtGui import QPainter, QPixmap
-from PySide6.QtWidgets import QHeaderView, QStyledItemDelegate, QWizard, QWizardPage
+from PySide6.QtWidgets import (
+    QHeaderView,
+    QStyledItemDelegate,
+    QWizard,
+    QWizardPage,
+    QMessageBox,
+)
 
 from ui.designer.pages.final_confirm_ui import Ui_Final_Confirm
 from ui.implements.fields import (
@@ -151,3 +164,12 @@ class Final_Confirm(Ui_Final_Confirm, QWizardPage):
 
             self.devicesJsonPathLabel.setText(self.field(DEVICES_JSON_PATH))
             self.deviceInfoLabel.setText(device.repr_info())
+
+    @Slot()
+    def on_confirmButton_clicked(self):
+        try:
+            self.wizard().writeDevice()
+            self.confirmButton.setEnabled(False)
+            QMessageBox.information(self, "Success", "写入成功！")
+        except Exception as e:
+            QMessageBox.critical(self, None, str(e))

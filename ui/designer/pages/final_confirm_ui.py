@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFormLayout, QHBoxLayout, QHeaderView,
-    QLabel, QSizePolicy, QSpacerItem, QTableView,
-    QVBoxLayout, QWidget)
+    QLabel, QPushButton, QSizePolicy, QSpacerItem,
+    QTableView, QVBoxLayout, QWidget)
 
 class Ui_Final_Confirm(object):
     def setupUi(self, Final_Confirm):
@@ -59,6 +59,11 @@ class Ui_Final_Confirm(object):
 
         self.formLayout.setWidget(2, QFormLayout.FieldRole, self.label_3)
 
+        self.confirmButton = QPushButton(self.widget)
+        self.confirmButton.setObjectName(u"confirmButton")
+
+        self.formLayout.setWidget(3, QFormLayout.FieldRole, self.confirmButton)
+
 
         self.verticalLayout_2.addWidget(self.widget)
 
@@ -88,6 +93,7 @@ class Ui_Final_Confirm(object):
         self.label.setText(QCoreApplication.translate("Final_Confirm", u"\u5c06\u5411", None))
         self.label_2.setText(QCoreApplication.translate("Final_Confirm", u"\u4e2d\u7684", None))
         self.label_3.setText(QCoreApplication.translate("Final_Confirm", u"\u5199\u5165\u672c\u6b21\u914d\u7f6e\u7ed3\u679c\uff1a", None))
+        self.confirmButton.setText(QCoreApplication.translate("Final_Confirm", u"\u786e\u8ba4\u5199\u5165", None))
         pass
     # retranslateUi
 
