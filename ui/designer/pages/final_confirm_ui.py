@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QHBoxLayout, QHeaderView,
-    QLabel, QPushButton, QSizePolicy, QSpacerItem,
-    QTableView, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QHeaderView, QLabel,
+    QPushButton, QSizePolicy, QTableView, QVBoxLayout,
+    QWidget)
 
 class Ui_Final_Confirm(object):
     def setupUi(self, Final_Confirm):
@@ -67,22 +67,12 @@ class Ui_Final_Confirm(object):
 
         self.verticalLayout_2.addWidget(self.widget)
 
-        self.widget_2 = QWidget(Final_Confirm)
-        self.widget_2.setObjectName(u"widget_2")
-        self.horizontalLayout = QHBoxLayout(self.widget_2)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-
-        self.verticalLayout_2.addWidget(self.widget_2)
-
         self.tableView = QTableView(Final_Confirm)
         self.tableView.setObjectName(u"tableView")
 
         self.verticalLayout_2.addWidget(self.tableView)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_2.addItem(self.verticalSpacer)
-
+        self.verticalLayout_2.setStretch(1, 1)
 
         self.retranslateUi(Final_Confirm)
 
