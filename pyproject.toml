@@ -19,6 +19,9 @@ classifiers = [
 "Homepage" = "https://github.com/283375/arcaea-offline-ocr-device-creation-wizard"
 "Bug Tracker" = "https://github.com/283375/arcaea-offline-ocr-device-creation-wizard/issues"
 
+[tool.setuptools]
+package-dir = { "arcaea_offline_ocr_device_creation_wizard" = "arcaea_offline_ocr_device_creation_wizard" }
+
 [tool.black]
 force-exclude = '''
 (
