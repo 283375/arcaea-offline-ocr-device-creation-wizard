@@ -55,8 +55,8 @@ class WatermarkPixmapWidget(QWidget):
 
 
 class Wizard(QWizard):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.resize(900, 600)
         self.setWizardStyle(QWizard.WizardStyle.ModernStyle)
         self.setOptions(
