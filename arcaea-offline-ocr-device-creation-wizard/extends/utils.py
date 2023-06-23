@@ -1,10 +1,9 @@
-from typing import TypeVar, Generic
-from PySide6.QtCore import QObject
+from typing import Generic, TypeVar
 
-from PySide6.QtGui import QImage
-
-from cv2 import Mat
 import numpy as np
+from cv2 import Mat
+from PySide6.QtCore import QObject
+from PySide6.QtGui import QImage
 
 T = TypeVar("T")
 

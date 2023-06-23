@@ -6,12 +6,11 @@ from PySide6.QtCore import (
     QFile,
     QIODevice,
     Qt,
-    Slot,
     QUrl,
+    Slot,
 )
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 from PySide6.QtWidgets import QMessageBox, QWizardPage
-
 from ui.designer.pages.device_select_ui import Ui_Device_Select
 from ui.extends.devices import load_devices_json
 from ui.implements.dialogs.newDeviceDialog import NewDeviceDialog

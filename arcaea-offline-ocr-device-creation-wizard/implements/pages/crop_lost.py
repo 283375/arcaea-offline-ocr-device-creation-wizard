@@ -1,7 +1,6 @@
 from arcaea_offline_ocr.recognize import recognize_far_lost
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtGui import QPixmap
-
 from ui.implements.fields import LOST_RECT
 
 from .crop_general import Crop_General

@@ -8,7 +8,6 @@ from PySide6.QtWidgets import (
     QGraphicsSceneMouseEvent,
     QWidget,
 )
-
 from ui.designer.components.imageCropper_ui import Ui_ImageCropper
 from ui.extends.graphics import GraphicsViewZoomWrapper
 

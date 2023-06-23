@@ -1,5 +1,5 @@
-from dataclasses import asdict
 import json
+from dataclasses import asdict
 
 from arcaea_offline_ocr.device import Device
 from PySide6.QtCore import QRect

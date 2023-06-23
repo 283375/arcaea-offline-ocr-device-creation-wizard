@@ -11,12 +11,11 @@ from PySide6.QtCore import (
 from PySide6.QtGui import QPainter, QPixmap
 from PySide6.QtWidgets import (
     QHeaderView,
+    QMessageBox,
     QStyledItemDelegate,
     QWizard,
     QWizardPage,
-    QMessageBox,
 )
-
 from ui.designer.pages.final_confirm_ui import Ui_Final_Confirm
 from ui.implements.fields import (
     DEVICES_JSON_PATH,

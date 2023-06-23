@@ -1,11 +1,15 @@
 import argparse
 import os
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ap = argparse.ArgumentParser()
 ap.add_argument(
-    "-no-obsolete", action="store_true", default=False, required=False, dest="no_obsolete"
+    "-no-obsolete",
+    action="store_true",
+    default=False,
+    required=False,
+    dest="no_obsolete",
 )
 args = ap.parse_args(sys.argv[1:])
 

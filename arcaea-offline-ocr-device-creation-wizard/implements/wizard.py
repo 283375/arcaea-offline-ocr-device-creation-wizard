@@ -2,7 +2,6 @@ from arcaea_offline_ocr.device import Device
 from PySide6.QtCore import QRect, Qt
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QLabel, QSizePolicy, QVBoxLayout, QWidget, QWizard
-
 from ui.extends.devices import (
     load_devices_json,
     qRect_to_device_rect,

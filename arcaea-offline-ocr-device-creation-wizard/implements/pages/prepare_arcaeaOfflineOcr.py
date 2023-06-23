@@ -2,7 +2,6 @@ from importlib.metadata import version
 
 from PySide6.QtCore import QCoreApplication, Slot
 from PySide6.QtWidgets import QWizardPage
-
 from ui.designer.pages.prepare_arcaeaOfflineOcr_ui import Ui_Prepare_ArcaeaOfflineOcr
 
 translate = QCoreApplication.translate
@@ -29,6 +28,6 @@ class Prepare_ArcaeaOfflineOcr(Ui_Prepare_ArcaeaOfflineOcr, QWizardPage):
 
     def validatePage(self):
         return bool(self.resultLabel.text())
-    
+
     def isComplete(self):
         return bool(self.resultLabel.text())

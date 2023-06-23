@@ -3,7 +3,6 @@ from cv2 import COLOR_RGBA2BGR, cvtColor
 from PySide6.QtCore import QCoreApplication, Signal, Slot
 from PySide6.QtGui import QImage, QPixmap
 from PySide6.QtWidgets import QMessageBox, QWizardPage
-
 from ui.designer.pages.prepare_tesseract_ui import Ui_Prepare_Tesseract
 from ui.extends.utils import qImage2cvMatRGBA
 from ui.implements.fields import TESSDATA_PATH, TESSERACT_PATH

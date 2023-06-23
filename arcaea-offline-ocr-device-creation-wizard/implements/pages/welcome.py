@@ -1,7 +1,7 @@
-from ui.designer.pages.welcome_ui import Ui_Welcome
-from PySide6.QtWidgets import QWizard, QWizardPage
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QWizard, QWizardPage
+from ui.designer.pages.welcome_ui import Ui_Welcome
 
 translate = QCoreApplication.translate
 
