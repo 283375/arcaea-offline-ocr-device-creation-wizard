@@ -16,5 +16,5 @@ class Crop_RatingClass(Crop_General):
         self.registerField(RATING_CLASS_RECT, self, "selectionRect")
 
         self.descLabel.setText(translate("Crop", "请框选出难度(PST/PRS/FTR/BYD)区域：适当留白"))
-        self.setExampleImgLabelPixmap(QPixmap(":/images/crop_rating_class_example.jpg"))
+        self.setExampleImgLabelPixmap(QPixmap(":/arcaea-offline-ocr-device-creation-wizard/images/crop_rating_class_example.jpg"))
         self.setRecognizeFunction(recognize_rating_class)

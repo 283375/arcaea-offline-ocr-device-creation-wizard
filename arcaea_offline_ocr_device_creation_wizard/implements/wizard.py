@@ -70,7 +70,7 @@ class Wizard(QWizard):
             | Qt.WindowType.Window
         )
         watermarkPixmapWidget = WatermarkPixmapWidget(self)
-        watermarkPixmapWidget.setPixmap(QPixmap(":/images/watermark.png"))
+        watermarkPixmapWidget.setPixmap(QPixmap(":/arcaea-offline-ocr-device-creation-wizard/images/watermark.png"))
         self.setSideWidget(watermarkPixmapWidget)
         self.setMinimumHeight(
             watermarkPixmapWidget.layout().minimumSize().height() + 200

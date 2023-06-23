@@ -46,7 +46,7 @@
          <string notr="true"/>
         </property>
         <property name="pixmap">
-         <pixmap>:/images/ocr_test.png</pixmap>
+         <pixmap>:/arcaea-offline-ocr-device-creation-wizard/images/ocr_test.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

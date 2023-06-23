@@ -16,5 +16,5 @@ class Crop_Score(Crop_General):
         self.registerField(SCORE_RECT, self, "selectionRect")
 
         self.descLabel.setText(translate("Crop", "请框选出得分区域：上下对齐"))
-        self.setExampleImgLabelPixmap(QPixmap(":/images/crop_score_example.jpg"))
+        self.setExampleImgLabelPixmap(QPixmap(":/arcaea-offline-ocr-device-creation-wizard/images/crop_score_example.jpg"))
         self.setRecognizeFunction(recognize_score)

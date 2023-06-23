@@ -16,5 +16,5 @@ class Crop_Lost(Crop_General):
         self.registerField(LOST_RECT, self, "selectionRect")
 
         self.descLabel.setText(translate("Crop", "请框选出 LOST 区域：上下对齐"))
-        self.setExampleImgLabelPixmap(QPixmap(":/images/crop_lost_example.jpg"))
+        self.setExampleImgLabelPixmap(QPixmap(":/arcaea-offline-ocr-device-creation-wizard/images/crop_lost_example.jpg"))
         self.setRecognizeFunction(recognize_far_lost)

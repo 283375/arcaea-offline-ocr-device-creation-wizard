@@ -22,7 +22,7 @@ class Prepare_Tesseract(Ui_Prepare_Tesseract, QWizardPage):
         self.setTitle(translate("Title", "准备工作"))
         self.setSubTitle(translate("SubTitle", "tesseract"))
 
-        self.image = QImage(":/images/ocr_test.png")
+        self.image = QImage(":/arcaea-offline-ocr-device-creation-wizard/images/ocr_test.png")
         self.pixmap = QPixmap.fromImage(self.image)
 
         self.__tesseractPath = ""

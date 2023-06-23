@@ -51,7 +51,7 @@ class Ui_Prepare_Tesseract(object):
         sizePolicy.setHeightForWidth(self.imageLabel.sizePolicy().hasHeightForWidth())
         self.imageLabel.setSizePolicy(sizePolicy)
         self.imageLabel.setText(u"")
-        self.imageLabel.setPixmap(QPixmap(u":/images/ocr_test.png"))
+        self.imageLabel.setPixmap(QPixmap(u":/arcaea-offline-ocr-device-creation-wizard/images/ocr_test.png"))
         self.imageLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
         self.horizontalLayout_2.addWidget(self.imageLabel)

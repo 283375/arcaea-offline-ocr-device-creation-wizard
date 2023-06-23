@@ -1,13 +1,1 @@
-<!DOCTYPE RCC>
-<RCC version="1.0">
-  <qresource prefix="/images">
-    <file>ocr_test.png</file>
-    <file>watermark.png</file>
-    <file>crop_pure_example.jpg</file>
-    <file>crop_far_example.jpg</file>
-    <file>crop_lost_example.jpg</file>
-    <file>crop_score_example.jpg</file>
-    <file>crop_max_recall_example.jpg</file>
-    <file>crop_rating_class_example.jpg</file>
-  </qresource>
-</RCC>
+<RCC/>

@@ -16,5 +16,5 @@ class Crop_Pure(Crop_General):
         self.registerField(PURE_RECT, self, "selectionRect")
 
         self.descLabel.setText(translate("Crop", "请框选出 PURE 区域：上下对齐"))
-        self.setExampleImgLabelPixmap(QPixmap(":/images/crop_pure_example.jpg"))
+        self.setExampleImgLabelPixmap(QPixmap(":/arcaea-offline-ocr-device-creation-wizard/images/crop_pure_example.jpg"))
         self.setRecognizeFunction(recognize_pure)

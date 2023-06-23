@@ -1,6 +1,6 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-  <qresource prefix="/lang">
+  <qresource prefix="/arcaea-offline-ocr-device-creation-wizard/lang">
     <file>zh_CN.qm</file>
     <file>en_US.qm</file>
   </qresource>
