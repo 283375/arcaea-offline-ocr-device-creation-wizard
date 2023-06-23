@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QGroupBox, QHBoxLayout, QLabel,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
-from ui.implements.components.imageCropper import ImageCropper
+from ...implements.components.imageCropper import ImageCropper
 
 class Ui_Crop_General(object):
     def setupUi(self, Crop_General):

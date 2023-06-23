@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QPushButton, QSizePolicy,
     QWidget)
 
-from ui.extends.elidedLabel import ElidedLabel
+from ...extends.elidedLabel import ElidedLabel
 
 class Ui_FileSelector(object):
     def setupUi(self, FileSelector):

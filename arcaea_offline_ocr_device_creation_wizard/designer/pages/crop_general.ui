@@ -98,7 +98,7 @@ font-style: italic;</string>
   <customwidget>
    <class>ImageCropper</class>
    <extends>QWidget</extends>
-   <header location="global">ui.implements.components.imageCropper</header>
+   <header location="global">...implements.components.imageCropper</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

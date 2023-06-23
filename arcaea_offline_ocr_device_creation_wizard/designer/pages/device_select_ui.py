@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFormLayout, QHBoxLayout
     QLabel, QPushButton, QSizePolicy, QSpacerItem,
     QVBoxLayout, QWidget)
 
-from ui.implements.components.fileSelector import FileSelector
+from ...implements.components.fileSelector import FileSelector
 
 class Ui_Device_Select(object):
     def setupUi(self, Device_Select):

@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QCheckBox, QFormLayout, QGroupBox,
     QHBoxLayout, QLabel, QPushButton, QSizePolicy,
     QSpacerItem, QVBoxLayout, QWidget)
 
-from ui.implements.components.fileSelector import FileSelector
+from ...implements.components.fileSelector import FileSelector
 
 class Ui_Prepare_Tesseract(object):
     def setupUi(self, Prepare_Tesseract):

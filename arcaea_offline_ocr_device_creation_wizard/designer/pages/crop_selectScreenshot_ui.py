@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QGraphicsView, QLabel, QSizePolicy,
     QVBoxLayout, QWidget)
 
-from ui.implements.components.fileSelector import FileSelector
+from ...implements.components.fileSelector import FileSelector
 
 class Ui_Crop_SelectScreenshot(object):
     def setupUi(self, Crop_SelectScreenshot):

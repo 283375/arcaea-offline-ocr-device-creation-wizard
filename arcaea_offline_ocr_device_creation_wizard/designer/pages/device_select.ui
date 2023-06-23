@@ -103,7 +103,7 @@
   <customwidget>
    <class>FileSelector</class>
    <extends>QWidget</extends>
-   <header>ui.implements.components.fileSelector</header>
+   <header>...implements.components.fileSelector</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

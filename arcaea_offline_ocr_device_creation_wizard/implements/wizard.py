@@ -92,6 +92,7 @@ class Wizard(QWizard):
         self.crop_rating_class_pageId = self.addPage(Crop_RatingClass(self))
         self.addPage(Crop_Title(self))
         self.addPage(Final_Confirm(self))
+        self.setWindowTitle("arcaea-offline-ocr Device Creation Wizard")
 
     def autoSetSelectionRect(self):
         crop_pure = self.page(self.crop_pure_pageId)  # type: Crop_Pure
