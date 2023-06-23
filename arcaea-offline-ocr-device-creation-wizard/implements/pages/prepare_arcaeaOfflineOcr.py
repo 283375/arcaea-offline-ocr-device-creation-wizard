@@ -2,7 +2,8 @@ from importlib.metadata import version
 
 from PySide6.QtCore import QCoreApplication, Slot
 from PySide6.QtWidgets import QWizardPage
-from ui.designer.pages.prepare_arcaeaOfflineOcr_ui import Ui_Prepare_ArcaeaOfflineOcr
+
+from ...designer.pages.prepare_arcaeaOfflineOcr_ui import Ui_Prepare_ArcaeaOfflineOcr
 
 translate = QCoreApplication.translate
 

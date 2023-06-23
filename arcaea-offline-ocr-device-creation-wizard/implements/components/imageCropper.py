@@ -1,5 +1,5 @@
 from PySide6.QtCore import Property, QPoint, QRect, QRectF, Qt, Signal, Slot
-from PySide6.QtGui import QColor, QImage, QPainterPath, QPen, QPixmap
+from PySide6.QtGui import QColor, QPainterPath, QPen, QPixmap
 from PySide6.QtWidgets import (
     QGraphicsPathItem,
     QGraphicsPixmapItem,
@@ -8,8 +8,9 @@ from PySide6.QtWidgets import (
     QGraphicsSceneMouseEvent,
     QWidget,
 )
-from ui.designer.components.imageCropper_ui import Ui_ImageCropper
-from ui.extends.graphics import GraphicsViewZoomWrapper
+
+from ...designer.components.imageCropper_ui import Ui_ImageCropper
+from ...extends.graphics import GraphicsViewZoomWrapper
 
 
 class CropGraphicsScene(QGraphicsScene):

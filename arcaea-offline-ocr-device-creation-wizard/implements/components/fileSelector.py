@@ -1,6 +1,7 @@
 from PySide6.QtCore import QFile, Qt, Signal, Slot
 from PySide6.QtWidgets import QFileDialog, QWidget
-from ui.designer.components.fileSelector_ui import Ui_FileSelector
+
+from ...designer.components.fileSelector_ui import Ui_FileSelector
 
 
 class FileSelector(Ui_FileSelector, QWidget):

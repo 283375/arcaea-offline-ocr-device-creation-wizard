@@ -1,10 +1,11 @@
 from cv2 import COLOR_BGR2HSV, COLOR_RGBA2BGR, cvtColor
 from PySide6.QtCore import Property, QCoreApplication, QRect, Qt, Signal, Slot
-from PySide6.QtGui import QImage, QPixmap
+from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QMessageBox, QWizardPage
-from ui.designer.pages.crop_general_ui import Ui_Crop_General
-from ui.extends.utils import qImage2cvMatRGBA
-from ui.implements.fields import SCREENSHOT_PATH
+
+from ...designer.pages.crop_general_ui import Ui_Crop_General
+from ...extends.utils import qImage2cvMatRGBA
+from ..fields import SCREENSHOT_PATH
 
 translate = QCoreApplication.translate
 

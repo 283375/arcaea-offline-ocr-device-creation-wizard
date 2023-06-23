@@ -1,7 +1,8 @@
 from uuid import uuid4
 
 from PySide6.QtWidgets import QDialog
-from ui.designer.dialogs.newDeviceDialog_ui import Ui_NewDeviceDialog
+
+from ...designer.dialogs.newDeviceDialog_ui import Ui_NewDeviceDialog
 
 
 class NewDeviceDialog(Ui_NewDeviceDialog, QDialog):

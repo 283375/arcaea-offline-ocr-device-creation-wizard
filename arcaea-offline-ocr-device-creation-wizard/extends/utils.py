@@ -1,7 +1,8 @@
 from typing import Generic, TypeVar
 
-import numpy as np
 from cv2 import Mat
+from numpy import frombuffer as np_frombuffer
+from numpy import uint8
 from PySide6.QtCore import QObject
 from PySide6.QtGui import QImage
 
@@ -27,5 +28,5 @@ def qImage2cvMatRGBA(qImg: QImage) -> Mat:
     # 2: https://stackoverflow.com/q/37552924/16484891 | CC BY-SA 3.0
     qImg = qImg.convertToFormat(QImage.Format.Format_RGBA8888)
     qImg_data = qImg.constBits()
-    np_arr = np.frombuffer(qImg_data, np.uint8)
+    np_arr = np_frombuffer(qImg_data, uint8)
     return np_arr.reshape((qImg.height(), qImg.width(), 4))

@@ -16,8 +16,9 @@ from PySide6.QtWidgets import (
     QWizard,
     QWizardPage,
 )
-from ui.designer.pages.final_confirm_ui import Ui_Final_Confirm
-from ui.implements.fields import (
+
+from ...designer.pages.final_confirm_ui import Ui_Final_Confirm
+from ..fields import (
     DEVICES_JSON_PATH,
     FAR_RECT,
     LOST_RECT,

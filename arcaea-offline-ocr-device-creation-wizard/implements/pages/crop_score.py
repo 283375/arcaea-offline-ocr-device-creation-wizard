@@ -1,8 +1,8 @@
 from arcaea_offline_ocr.recognize import recognize_score
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtGui import QPixmap
-from ui.implements.fields import SCORE_RECT
 
+from ..fields import SCORE_RECT
 from .crop_general import Crop_General
 
 translate = QCoreApplication.translate

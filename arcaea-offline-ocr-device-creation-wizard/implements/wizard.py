@@ -2,12 +2,25 @@ from arcaea_offline_ocr.device import Device
 from PySide6.QtCore import QRect, Qt
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QLabel, QSizePolicy, QVBoxLayout, QWidget, QWizard
-from ui.extends.devices import (
+
+from ..extends.devices import (
     load_devices_json,
     qRect_to_device_rect,
     write_devices_json,
 )
-from ui.implements.pages import (
+from .fields import (
+    DEVICE_NAME,
+    DEVICE_UUID,
+    DEVICES_JSON_PATH,
+    FAR_RECT,
+    LOST_RECT,
+    MAX_RECALL_RECT,
+    PURE_RECT,
+    RATING_CLASS_RECT,
+    SCORE_RECT,
+    TITLE_RECT,
+)
+from .pages import (
     Crop_Far,
     Crop_Introduction,
     Crop_Lost,
@@ -22,19 +35,6 @@ from ui.implements.pages import (
     Prepare_ArcaeaOfflineOcr,
     Prepare_Tesseract,
     Welcome,
-)
-
-from .fields import (
-    DEVICE_NAME,
-    DEVICE_UUID,
-    DEVICES_JSON_PATH,
-    FAR_RECT,
-    LOST_RECT,
-    MAX_RECALL_RECT,
-    PURE_RECT,
-    RATING_CLASS_RECT,
-    SCORE_RECT,
-    TITLE_RECT,
 )
 
 

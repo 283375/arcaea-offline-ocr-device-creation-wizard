@@ -11,10 +11,11 @@ from PySide6.QtCore import (
 )
 from PySide6.QtGui import QStandardItem, QStandardItemModel
 from PySide6.QtWidgets import QMessageBox, QWizardPage
-from ui.designer.pages.device_select_ui import Ui_Device_Select
-from ui.extends.devices import load_devices_json
-from ui.implements.dialogs.newDeviceDialog import NewDeviceDialog
-from ui.implements.fields import DEVICE_NAME, DEVICE_UUID, DEVICES_JSON_PATH
+
+from ...designer.pages.device_select_ui import Ui_Device_Select
+from ...extends.devices import load_devices_json
+from ..dialogs.newDeviceDialog import NewDeviceDialog
+from ..fields import DEVICE_NAME, DEVICE_UUID, DEVICES_JSON_PATH
 
 translate = QCoreApplication.translate
 

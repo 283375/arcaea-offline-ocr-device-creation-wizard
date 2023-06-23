@@ -1,8 +1,9 @@
 from PySide6.QtCore import Property, QCoreApplication, Qt, Signal
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QGraphicsPixmapItem, QGraphicsScene, QWizardPage
-from ui.designer.pages.crop_selectScreenshot_ui import Ui_Crop_SelectScreenshot
-from ui.implements.fields import SCREENSHOT_PATH
+
+from ...designer.pages.crop_selectScreenshot_ui import Ui_Crop_SelectScreenshot
+from ..fields import SCREENSHOT_PATH
 
 translate = QCoreApplication.translate
 
